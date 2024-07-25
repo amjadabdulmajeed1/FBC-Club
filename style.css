@@ -103,3 +103,74 @@ img {
 .nav-list a.active {
   border-bottom: 2px solid #62bfea;
 }
+
+/* Hero */
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  z-index: 10;
+}
+
+.hero-img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.hero-img::before {
+  background: radial-gradient(
+    closest-side at 50% 50%,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(3, 25, 47, 0.466) 47%,
+    rgb(7, 40, 74) 100%
+  );
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.75;
+}
+.header-image {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  object-position: top;
+}
+
+.hero-content {
+  position: relative;
+  color: #fff;
+  margin-left: 100px;
+  margin-top: 50px;
+}
+
+.hero-content-title {
+  font-size: 80px;
+  max-width: 620px;
+}
+
+.hero-content-button {
+  height: 50px;
+  width: 340px;
+  border: 1px solid #62bfea;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-decoration: none;
+  background: #62bfea;
+  margin-top: 31px;
+  border-radius: 5px;
+  font-size: 17px;
+}
+
+.hero-content-button:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
