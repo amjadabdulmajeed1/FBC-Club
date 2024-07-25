@@ -17,8 +17,10 @@
     <!-- Header Section:
       - I added two items logo and navbar
       - I used Flexbox to style navbar
+      - add effect to navbar, it's the nav bar is transparent but when user scroll down get the background of navbar.
+      - added active navigation links on scroll 
      -->
-    <div class="nav">
+    <div id="nav" class="nav top">
       <a href="#" class="logo"><span class="nav-text"><i class="fa-regular fa-futbol"></i> FBC</span> Club</a>
       <nav>
         <ul class="nav-list">
@@ -40,7 +42,7 @@
       - use Flexbox to align items in column 
       - I used overly to add a little dark on the image. we can do that also in Photoshop.
      -->
-    <section class="hero">
+    <section id="home" class="hero">
       <div class="hero-img">
         <figure class="hero-figure">
           <img src="./images/hero/showcase.jpg" alt="Header" class="header-image" loading="lazy">
@@ -48,10 +50,142 @@
       </div>
       <div class="hero-content">
         <h1 class="hero-content-title">Welcome to the largest Football club in the world</h1>
-        <button class="hero-content-button">Leave your details</button>
+        <button class="hero-content-button" onclick="openModal()">Leave your details</button>
+      </div>
+    </section>
+    <!-- ///////////////////////// -->
+    <!-- ///////////////////////// -->
+    <!-- ///////////////////////// -->
+
+    <!-- News -->
+    <div class="text" id="news">
+      <h2 class="text-title">An overview of our FBC club</h2>
+    </div>
+    <!-- News -->
+    <section id="news" class=" news">
+      <div class="news-container">
+        <div class="news-content ">
+          <div class="news-content-imgage ">
+            <img src="./images/News/news1.jpg" alt="" />
+          </div>
+        </div>
+        <div class="news-content ">
+          <div class="news-content-text">
+            <h4 class="text-title">Latest FBC News</h4>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae perspiciatis repudiandae, dicta veniam
+              odit eveniet sed non impedit fugit delectus distinctio, necessitatibus minus veritatis nobis, saepe
+              consectetur similique velit modi.</p>
+          </div><br>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis iure, qui dolorum asperiores omnis odit fuga
+            alias iusto sit! Et voluptate sint commodi autem modi quasi nostrum iure, consequatur nulla natus quod
+            cumque officia corporis explicabo placeat neque aut laborum impedit deleniti. Maxime ipsa, harum dignissimos
+            magni placeat molestiae fugit illo incidunt minus inventore porro nobis, sapiente ut aliquid, impedit nemo
+            dolor! Veritatis voluptates sequi est, maxime id totam dolorem. Labore ipsum quae modi possimus, maiores
+            minus, laboriosam inventore sapiente laborum aliquid neque quas omnis. Voluptate vero quos, adipisci ad
+            voluptatum nisi quo est similique.
+          </p>
+          <a href="news.html" class="btn btn-news"> Read More </a>
+        </div>
+      </div>
       </div>
     </section>
   </main>
+  <!-- ///////////////// -->
+  <!-- ///////////////// -->
+  <section id="gallery" class=" news">
+    <div class="news-container">
+      <div class="news-content ">
+        <div class="news-content-imgage ">
+          <img src="./images/News/news1.jpg" alt="" />
+        </div>
+      </div>
+      <div class="news-content ">
+        <div class="news-content-text">
+          <h4 class="text-title">Latest FBC News</h4>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae perspiciatis repudiandae, dicta veniam
+            odit eveniet sed non impedit fugit delectus distinctio, necessitatibus minus veritatis nobis, saepe
+            consectetur similique velit modi.</p>
+        </div><br>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis iure, qui dolorum asperiores omnis odit fuga
+          alias iusto sit! Et voluptate sint commodi autem modi quasi nostrum iure, consequatur nulla natus quod
+          cumque officia corporis explicabo placeat neque aut laborum impedit deleniti. Maxime ipsa, harum dignissimos
+          magni placeat molestiae fugit illo incidunt minus inventore porro nobis, sapiente ut aliquid, impedit nemo
+          dolor! Veritatis voluptates sequi est, maxime id totam dolorem. Labore ipsum quae modi possimus, maiores
+          minus, laboriosam inventore sapiente laborum aliquid neque quas omnis. Voluptate vero quos, adipisci ad
+          voluptatum nisi quo est similique.
+        </p>
+        <a href="news.html" class="btn btn-news"> Read More </a>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <section id="teams" class=" news">
+    <div class="news-container">
+      <div class="news-content ">
+        <div class="news-content-imgage ">
+          <img src="./images/News/news1.jpg" alt="" />
+        </div>
+      </div>
+      <div class="news-content ">
+        <div class="news-content-text">
+          <h4 class="text-title">Latest FBC News</h4>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae perspiciatis repudiandae, dicta veniam
+            odit eveniet sed non impedit fugit delectus distinctio, necessitatibus minus veritatis nobis, saepe
+            consectetur similique velit modi.</p>
+        </div><br>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis iure, qui dolorum asperiores omnis odit fuga
+          alias iusto sit! Et voluptate sint commodi autem modi quasi nostrum iure, consequatur nulla natus quod
+          cumque officia corporis explicabo placeat neque aut laborum impedit deleniti. Maxime ipsa, harum dignissimos
+          magni placeat molestiae fugit illo incidunt minus inventore porro nobis, sapiente ut aliquid, impedit nemo
+          dolor! Veritatis voluptates sequi est, maxime id totam dolorem. Labore ipsum quae modi possimus, maiores
+          minus, laboriosam inventore sapiente laborum aliquid neque quas omnis. Voluptate vero quos, adipisci ad
+          voluptatum nisi quo est similique.
+        </p>
+        <a href="news.html" class="btn btn-news"> Read More </a>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <section id="contact" class=" news">
+    <div class="news-container">
+      <div class="news-content ">
+        <div class="news-content-imgage ">
+          <img src="./images/News/news1.jpg" alt="" />
+        </div>
+      </div>
+      <div class="news-content ">
+        <div class="news-content-text">
+          <h4 class="text-title">Latest FBC News</h4>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae perspiciatis repudiandae, dicta veniam
+            odit eveniet sed non impedit fugit delectus distinctio, necessitatibus minus veritatis nobis, saepe
+            consectetur similique velit modi.</p>
+        </div><br>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis iure, qui dolorum asperiores omnis odit fuga
+          alias iusto sit! Et voluptate sint commodi autem modi quasi nostrum iure, consequatur nulla natus quod
+          cumque officia corporis explicabo placeat neque aut laborum impedit deleniti. Maxime ipsa, harum dignissimos
+          magni placeat molestiae fugit illo incidunt minus inventore porro nobis, sapiente ut aliquid, impedit nemo
+          dolor! Veritatis voluptates sequi est, maxime id totam dolorem. Labore ipsum quae modi possimus, maiores
+          minus, laboriosam inventore sapiente laborum aliquid neque quas omnis. Voluptate vero quos, adipisci ad
+          voluptatum nisi quo est similique.
+        </p>
+        <a href="news.html" class="btn btn-news"> Read More </a>
+      </div>
+    </div>
+    </div>
+  </section>
+
+
+
+
+  <!-- Footer -->
+
+  <script src="script.js"></script>
 
 </body>
 
