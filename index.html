@@ -1,0 +1,826 @@
+<!-- 
+- I know comments should be short, but I made this one longer just to clarify. In actual projects, comments should be brief and only explain what the code can't.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="FBC Club is one of the oldest and best-known football clubs in world. Would you like to become a member of FBC Club? Sign In!">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
+  <title>FBC Club</title>
+</head>
+
+<body id="body">
+  <!-- Modal -->
+  <!-- 
+purpose:
+Create a modal dialog  for collecting user information.
+ -->
+  <!-- 1.Modal Container -->
+  <div id="myModal" class="modal">
+    <!-- Close Button-->
+    <div class="button-close">
+      <p class="button-text">Close</p>
+      <!-- I used span  to wrap the SVG icon -->
+      <span class="close-span">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14" height="14px" width="14px">
+          <path fill="#FFFFFF"
+            d="M14 1.4L12.6 0 7 5.6 1.4 0 0 1.4 5.6 7 0 12.6 1.4 14 7 8.4l5.6 5.6 1.4-1.4L8.4 7 14 1.4z"></path>
+        </svg>
+      </span>
+    </div>
+
+    <!-- 3.Modal Content -->
+    <div class="modal-container">
+      <div class="modal-header">
+        <img src="https://i.postimg.cc/ZY1dKRmb/modal.jpg" alt="">
+      </div>
+
+      <!-- Modal Content Section-->
+      <div class="modal-content">
+        <div class="modal-content-title">
+          <p>Leave your details here. We will contact you personally as soon as possible.</p>
+        </div>
+
+        <!-- Form Section:
+        - form action="#":  it won't submit data anywhere -->
+
+        <form action="#">
+          <div class="content-form">
+            <div class="input-control">
+              <input type="text" name="name" class="input-field" placeholder="First and last name">
+            </div>
+            <div class="input-control">
+              <input type="text" name="email" class="input-field" placeholder="Enter an email address">
+            </div>
+            <div class="input-control">
+              <input type="text" name="mobile" class="input-field" maxlength="10"
+                placeholder="Enter a telephone number">
+            </div>
+            <div class="input-control">
+              <!-- Checkbox for Offers -->
+              <input type="checkbox" name="offers">
+              <span>Yes, FBC Club can keep me informed of business offers</span>
+            </div>
+          </div>
+          <!--  Submit Button -->
+          <buttton class="content-button">Send</buttton>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation bar -->
+  <header>
+    <!-- 
+    i created navigation bar with different navigation sections
+    1.for a regular screen (nav), 
+    2,for fixed position navigation (nav-fixed), 
+    3.for mobile navigation (mobile-nav).
+     -->
+
+    <!-- 1.for a regular screen (nav) -->
+    <div class="nav">
+      <div class="nav-left">
+        <a href="#home">
+          <svg class="nav-left-figure-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="#65BEEC">
+            <path
+              d="M417.3 360.1l-71.6-4.8c-5.2-.3-10.3 1.1-14.5 4.2s-7.2 7.4-8.4 12.5l-17.6 69.6C289.5 445.8 273 448 256 448s-33.5-2.2-49.2-6.4L189.2 372c-1.3-5-4.3-9.4-8.4-12.5s-9.3-4.5-14.5-4.2l-71.6 4.8c-17.6-27.2-28.5-59.2-30.4-93.6L125 228.3c4.4-2.8 7.6-7 9.2-11.9s1.4-10.2-.5-15l-26.7-66.6C128 109.2 155.3 89 186.7 76.9l55.2 46c4 3.3 9 5.1 14.1 5.1s10.2-1.8 14.1-5.1l55.2-46c31.3 12.1 58.7 32.3 79.6 57.9l-26.7 66.6c-1.9 4.8-2.1 10.1-.5 15s4.9 9.1 9.2 11.9l60.7 38.2c-1.9 34.4-12.8 66.4-30.4 93.6zM256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm14.1-325.7c-8.4-6.1-19.8-6.1-28.2 0L194 221c-8.4 6.1-11.9 16.9-8.7 26.8l18.3 56.3c3.2 9.9 12.4 16.6 22.8 16.6l59.2 0c10.4 0 19.6-6.7 22.8-16.6l18.3-56.3c3.2-9.9-.3-20.7-8.7-26.8l-47.9-34.8z" />
+          </svg>
+        </a>
+      </div>
+      <div class="nav-center">
+        <!-- The onclick="navigateToItem('section')" attributes are used to call a JavaScript function named navigateToItem that is responsible for smooth scrolling to the specified section of the page. -->
+        <a href="#home" onclick="navigateToItem('home')" class="nav-item">
+          Home
+        </a>
+        <a onclick="navigateToItem('about')" class="nav-item">
+          About
+        </a>
+        <a onclick="navigateToItem('gallery')" class="nav-item">
+          Gallery
+        </a>
+        <a onclick="navigateToItem('news')" class="nav-item">
+          News
+        </a>
+        <a onclick="navigateToItem('results')" class="nav-item">
+          Results
+        </a>
+        <a onclick="navigateToItem('contact')" class="nav-item">
+          Contact
+        </a>
+      </div>
+    </div>
+
+    <!-- 2.Fixed Position Navigation Bar with nav-fixed Class -->
+    <!-- Similar to the nav class but for fixed navigation that stays in place as you scroll. -->
+    <div class="nav-fixed">
+      <div class="nav-left">
+        <a href="#" class="nav-fixed-left-figure">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="#65BEEC" width="55" height="55" viewBox="0 0 512 512">
+            <path
+              d="M417.3 360.1l-71.6-4.8c-5.2-.3-10.3 1.1-14.5 4.2s-7.2 7.4-8.4 12.5l-17.6 69.6C289.5 445.8 273 448 256 448s-33.5-2.2-49.2-6.4L189.2 372c-1.3-5-4.3-9.4-8.4-12.5s-9.3-4.5-14.5-4.2l-71.6 4.8c-17.6-27.2-28.5-59.2-30.4-93.6L125 228.3c4.4-2.8 7.6-7 9.2-11.9s1.4-10.2-.5-15l-26.7-66.6C128 109.2 155.3 89 186.7 76.9l55.2 46c4 3.3 9 5.1 14.1 5.1s10.2-1.8 14.1-5.1l55.2-46c31.3 12.1 58.7 32.3 79.6 57.9l-26.7 66.6c-1.9 4.8-2.1 10.1-.5 15s4.9 9.1 9.2 11.9l60.7 38.2c-1.9 34.4-12.8 66.4-30.4 93.6zM256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm14.1-325.7c-8.4-6.1-19.8-6.1-28.2 0L194 221c-8.4 6.1-11.9 16.9-8.7 26.8l18.3 56.3c3.2 9.9 12.4 16.6 22.8 16.6l59.2 0c10.4 0 19.6-6.7 22.8-16.6l18.3-56.3c3.2-9.9-.3-20.7-8.7-26.8l-47.9-34.8z" />
+          </svg>
+        </a>
+      </div>
+      <div class="nav-center">
+        <a onclick="navigateToItem('home')" class="nav-fixed-item nav-fixed-item-home">
+          Home
+        </a>
+        <a onclick="navigateToItem('about')" class="nav-fixed-item" style="border-bottom: 2px solid rgb(98, 191, 235);">
+          About
+        </a>
+        <a onclick="navigateToItem('gallery')" class="nav-fixed-item"
+          style="border-bottom: 2px solid rgb(98, 191, 235);">
+          Gallery
+        </a>
+        <a onclick="navigateToItem('news')" class="nav-fixed-item">
+          News
+        </a>
+        <a onclick="navigateToItem('results')" class="nav-fixed-item">
+          Results
+        </a>
+        <a onclick="navigateToItem('contact')" class="nav-fixed-item">
+          Contact
+        </a>
+      </div>
+    </div>
+
+    <!-- 3.Mobile Navigation -->
+    <!--  Container for the mobile logo. -->
+    <div class="mobile-logo-nav">
+      <!-- List container for the mobile logo navigation item. -->
+      <ul class="mobile-logo-nav-list">
+        <!-- List item containing the mobile logo link. -->
+        <li class="mobile-logo-nav-item">
+          <a class="mobile-logo-nav-logo" href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" width="91" height="95" fill="#65BEEC" viewBox="0 0 512 512">
+              <path
+                d="M417.3 360.1l-71.6-4.8c-5.2-.3-10.3 1.1-14.5 4.2s-7.2 7.4-8.4 12.5l-17.6 69.6C289.5 445.8 273 448 256 448s-33.5-2.2-49.2-6.4L189.2 372c-1.3-5-4.3-9.4-8.4-12.5s-9.3-4.5-14.5-4.2l-71.6 4.8c-17.6-27.2-28.5-59.2-30.4-93.6L125 228.3c4.4-2.8 7.6-7 9.2-11.9s1.4-10.2-.5-15l-26.7-66.6C128 109.2 155.3 89 186.7 76.9l55.2 46c4 3.3 9 5.1 14.1 5.1s10.2-1.8 14.1-5.1l55.2-46c31.3 12.1 58.7 32.3 79.6 57.9l-26.7 66.6c-1.9 4.8-2.1 10.1-.5 15s4.9 9.1 9.2 11.9l60.7 38.2c-1.9 34.4-12.8 66.4-30.4 93.6zM256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm14.1-325.7c-8.4-6.1-19.8-6.1-28.2 0L194 221c-8.4 6.1-11.9 16.9-8.7 26.8l18.3 56.3c3.2 9.9 12.4 16.6 22.8 16.6l59.2 0c10.4 0 19.6-6.7 22.8-16.6l18.3-56.3c3.2-9.9-.3-20.7-8.7-26.8l-47.9-34.8z" />
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Container for the mobile navigation links. The class active makes it visible. -->
+    <div class="mobile-nav active">
+      <ul>
+        <li class="mobile-nav-item">
+          <a href="#home" class="mobile-nav-link">Home</a>
+        </li>
+        <li class="mobile-nav-item">
+          <a href="#about" class="mobile-nav-link">About</a>
+        </li>
+        <li class="mobile-nav-item">
+          <a href="#gallery" class="mobile-nav-link">Gallery</a>
+        </li>
+        <li class="mobile-nav-item">
+          <a href="#news" class="mobile-nav-link">News</a>
+        </li>
+        <li class="mobile-nav-item">
+          <a href="#results" class="mobile-nav-link">Results</a>
+        </li>
+        <li class="mobile-nav-item">
+          <a href="#contact" class="mobile-nav-link">Contact</a>
+        </li>
+      </ul>
+    </div>
+    <!-- Hamburger button for toggling the mobile navigation menu. The active class makes it visible. -->
+    <button class="hamburger active">
+      <span></span>
+    </button>
+  </header>
+
+
+  <main>
+    <!-- Hero -->
+    <!-- 
+   I am using HTML and CSS to create a hero section for a football club webpage. 
+  In the HTML, I include a hero section with an image and a welcome message. 
+     -->
+    <section class="hero">
+      <div class="hero-img">
+        <!-- figure element is used to wrap the img element, which is the actual image being displayed. -->
+        <figure class="hero-figure">
+          <img class="header-image" src="https://i.postimg.cc/HsX7JgWQ/showcase.jpg" alt="Header">
+        </figure>
+      </div>
+      <div class="hero-content">
+        <h1 class="hero-content-title">Welcome to the biggest football club in the world</h1>
+        <button onclick="openModal()" class="hero-content-button">
+          Leave your details
+        </button>
+      </div>
+    </section>
+
+    <!-- Text below the hero  -->
+    <div class="text">
+      <h2 class="text-title">Overview of our FBS football club</h2>
+    </div>
+
+    <!-- About -->
+    <!-- I used HTML to create a slider with images and navigation buttons. 
+     
+    Purpose of the Code:
+ - A Slider: To display a set of images that users can navigate through using "previous" and "next" buttons.
+ - Informational Text: To provide some textual content about a football club.
+ - Read More Button: To potentially link to a detailed page or additional content.
+    
+    -->
+    <section id="about" class="about">
+      <div class="about-container">
+        <!-- Slider -->
+        <div class="about-slider">
+          <div id="slider" class="about-slider-images">
+            <figure class=" active">
+              <img src="https://i.postimg.cc/dt4rcTvL/slider1.jpg">
+            </figure>
+            <figure>
+              <img src="https://i.postimg.cc/Z5n3bKKj/slider2.jpg">
+            </figure>
+            <figure>
+              <img src="https://i.postimg.cc/rm1RnDQy/slider3.jpg">
+            </figure>
+            <figure>
+              <img src="https://i.postimg.cc/tgVx6S6x/slider4.jpg">
+            </figure>
+            <figure>
+              <img src="https://i.postimg.cc/JnVB5N3d/slider5.jpg">
+            </figure>
+            <figure>
+              <img src="https://i.postimg.cc/6pPZyJ8K/slider6.jpg">
+            </figure>
+          </div>
+          <div class="slide-buttons">
+            <!-- Previous slide -->
+            <a class="prev prev-right" onclick="updateSlides(-1, slider)">
+              <svg data-name="Group 1046" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.67 9.08" class="prev-svg">
+                <g data-name="Group 1045">
+                  <path data-name="Path 1901"
+                    d="M9.84 9.08a.94.94 0 01-.6-.2L.35 1.67A.94.94 0 111.54.2l8.3 6.71 8.3-6.7a.94.94 0 111.18 1.46l-8.88 7.2a.94.94 0 01-.6.2z"
+                    fill="#043464"></path>
+                </g>
+              </svg>
+            </a>
+            <!-- Next slide -->
+            <a class="next next-right" onclick="updateSlides(1, slider)">
+              <svg data-name="Group 1046" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.67 9.08" class="next-svg">
+                <g data-name="Group 1045">
+                  <path data-name="Path 1901"
+                    d="M9.84 9.08a.94.94 0 01-.6-.2L.35 1.67A.94.94 0 111.54.2l8.3 6.71 8.3-6.7a.94.94 0 111.18 1.46l-8.88 7.2a.94.94 0 01-.6.2z"
+                    fill="#043464"></path>
+                </g>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- about-text -->
+        <div class="about-text">
+          <h2 class="about-title">FBC Football club</h2>
+          <div class="about-content">
+            <p class="about-content-text1">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe mollitia cupiditate aliquid illo non rem
+              laboriosam velit veniam voluptatem, autem culpa facere quisquam molestiae odit nulla cumque repellat
+              dolores
+              voluptas.
+            </p>
+            <br>
+            <br>
+            <p class="about-content-text2">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident veniam asperiores rem non sunt,
+              consequatur
+              optio voluptatem? Eaque consequuntur ut a reiciendis commodi at accusamus, dolores itaque quis, minima
+              voluptates recusandae! Sit iure laborum nostrum nesciunt? Fuga itaque reprehenderit dicta ab ex, nam
+              suscipit
+              ullam similique totam unde. Ab excepturi cupiditate officiis exercitationem iure facere, voluptatibus
+              laborum
+              eum quidem aperiam delectus quis eos sit veniam tempora nobis debitis voluptas molestias optio sunt quae
+              voluptates. Ut nihil animi, explicabo repellat dolores libero commodi ipsa minima quae quas eos facere sed
+              illo cumque neque earum totam aliquid!
+            </p>
+          </div>
+          <div class="about-button">
+            <a href="#" class="btn">Read more</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <!-- I created a simple interactive image gallery. The gallery allows users to click on different panels, which then display the content by applying an "active" class. -->
+    <section id="gallery" class="gallery">
+      <header class="gallery-title">
+        <h2>FBC Gallery</h2>
+      </header>
+      <div class="gallery-container">
+        <div class="gallery-panel active gallery-img1">
+          <h3>Explore FBC Club</h3>
+        </div>
+        <div class="gallery-panel gallery-img2">
+          <h3>Explore FBC Club</h3>
+        </div>
+        <div class="gallery-panel gallery-img3">
+          <h3>Explore FBC Club</h3>
+        </div>
+        <div class="gallery-panel gallery-img4">
+          <h3>Explore FBC Club</h3>
+        </div>
+        <div class="gallery-panel gallery-img5">
+          <h3>Explore FBC Club</h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- News -->
+    <!-- 
+     I used HTML to structure a news section with articles, including images, titles, descriptions, and buttons. 
+     
+      This section displays a list of news articles in a grid layout, each with an image, title, description, and a "Read more" button. 
+     -->
+    <section id="news" class="news">
+      <div class="news-container">
+        <header>
+          <h1 class="news-title">Latest news</h1>
+        </header>
+        <div class="articles">
+          <a href="#" class="article">
+            <div class="article-image">
+              <img src="https://i.postimg.cc/XvXTkFNF/news1.jpg" alt="">
+            </div>
+            <div class="article-content">
+              <time class="article-content-date">
+                <p><i class="fa-regular fa-calendar-days"></i> Saturday
+                  - 14:33</p>
+                <h2 class="article-content-title">Lorem ipsum dolor sit amet.</h2>
+                <p class="article-content-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Suscipit,
+                  eaque.</p>
+                <button class="btn article-content-button">Read more</button>
+              </time>
+            </div>
+          </a>
+          <a href="#" class="article">
+            <div class="article-image">
+              <img src="https://i.postimg.cc/FzbqHVGt/news2.jpg" alt="">
+            </div>
+            <div class="article-content">
+              <time class="article-content-date">
+                <p><i class="fa-regular fa-calendar-days"></i> Monday
+                  - 21:00</p>
+                <h2 class="article-content-title">Lorem ipsum dolor sit amet.</h2>
+                <p class="article-content-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Suscipit,
+                  eaque.</p>
+                <button class="btn article-content-button">Read more</button>
+              </time>
+            </div>
+          </a>
+          <a href="#" class="article">
+            <div class="article-image">
+              <img src="https://i.postimg.cc/RCw2dvmP/news3.jpg" alt="">
+            </div>
+            <div class="article-content">
+              <time class="article-content-date">
+                <p><i class="fa-regular fa-calendar-days"></i> Tuesday
+                  - 12:33</p>
+                <h2 class="article-content-title">Lorem ipsum dolor sit amet.</h2>
+                <p class="article-content-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Suscipit,
+                  eaque.</p>
+                <button class="btn article-content-button">Read more</button>
+              </time>
+            </div>
+          </a>
+          <a href="#" class="article">
+            <div class="article-image">
+              <img src="https://i.postimg.cc/jj9Bg5C1/news4.jpg" alt="">
+            </div>
+            <div class="article-content">
+              <time class="article-content-date">
+                <p><i class="fa-regular fa-calendar-days"></i> Wednesday
+                  - 09:10</p>
+                <h2 class="article-content-title">Lorem ipsum dolor sit amet.</h2>
+                <p class="article-content-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Suscipit,
+                  eaque.</p>
+                <button class="btn article-content-button">Read more</button>
+              </time>
+            </div>
+          </a>
+          <a href="#" class="article">
+            <div class="article-image">
+              <img src="https://i.postimg.cc/j2YmTFHQ/news5.jpg" alt="">
+            </div>
+            <div class="article-content">
+              <time class="article-content-date">
+                <p><i class="fa-regular fa-calendar-days"></i> Thursday
+                  - 13:55</p>
+                <h2 class="article-content-title">Lorem ipsum dolor sit amet.</h2>
+                <p class="article-content-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Suscipit,
+                  eaque.</p>
+                <button class="btn article-content-button">Read more</button>
+              </time>
+            </div>
+          </a>
+          <a href="#" class="article">
+            <div class="article-image">
+              <img src="https://i.postimg.cc/bJtWKhtw/news6.jpg" alt="">
+            </div>
+            <div class="article-content">
+              <time class="article-content-date">
+                <p><i class="fa-regular fa-calendar-days"></i> Friday
+                  - 11:11</p>
+                <h2 class="article-content-title">Lorem ipsum dolor sit amet.</h2>
+                <p class="article-content-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Suscipit,
+                  eaque.</p>
+                <button class="btn article-content-button">Read more</button>
+              </time>
+            </div>
+          </a>
+          <div class="posts-button">
+            <a href="#">
+              <button class="btn">Load more posts</button>
+            </a>
+          </div>
+        </div>
+    </section>
+
+    <!-- Last result   -->
+    <!--  
+     I used an HTML structure to create a section for displaying the last match result, including team names, logos, and match details, to provide a clear and engaging presentation 
+     -->
+    <section id="results" class="last-result">
+      <header>
+        <h1 class="last-result-title">
+          Last result
+        </h1>
+      </header>
+      <div class="last-result-highlighted">
+        <div class="last-result-category">
+          <svg style=" display: block;
+          margin: 0 auto;
+            max-height: 40px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 266.8 266.8">
+            <path fill="#043464"
+              d="M227.8 39.1A133.51 133.51 0 0 0 81.5 10.5a131.17 131.17 0 0 0-42.4 28.6 133.89 133.89 0 0 0-28.6 42.4 133.52 133.52 0 0 0 0 103.8 131.17 131.17 0 0 0 28.6 42.4 133.35 133.35 0 0 0 146.2 28.6 131.17 131.17 0 0 0 42.4-28.6 133.35 133.35 0 0 0 28.6-146.2 130.36 130.36 0 0 0-28.5-42.4zm-168.2-9c1.2-.9 2.4-1.9 3.6-2.8A120.57 120.57 0 0 1 84.1 16a127.7 127.7 0 0 1 82.9-5.4c-4.3 1.7-9.5 5-18.3 12.6a108.79 108.79 0 0 0-22.1-.1 123.39 123.39 0 0 0-49 15.5c-7-2.5-16.1-5.5-20.6-7 .7.3 2.1-1.1 2.6-1.5zm121.6 33.4l-22.8 62.3-54.7 10.5-45.2-46.7c3.1-21.2 17.6-40 17.6-40s9.6-6.9 24.8-12.2a111.88 111.88 0 0 1 26.9-5.9 100.16 100.16 0 0 1 21.9.3zM11.1 129a123.34 123.34 0 0 0-1 27.9c-1.1-2.2-2-4-2.6-5.5a133.79 133.79 0 0 1-1.3-18 127.18 127.18 0 0 1 11.4-52.7 132.16 132.16 0 0 0 .2 23.7 109.21 109.21 0 0 0-6.7 24.6zm11 48.5a118.58 118.58 0 0 1-3.6-19.9 114.53 114.53 0 0 1 .8-27.5 110.67 110.67 0 0 1 5.1-19.8c9.2-7.8 21.4-12.4 28.2-14.5L97 141.7 92.5 192l-43.4 14.5c-11.1-8.1-20.1-18.9-27-29zM154 250.3c-9.7 6.3-34.1 7.8-44 8.2a126 126 0 0 1-31.6-10.4 128.86 128.86 0 0 1-24.6-15.5c.1-.3-1.2-13.6-1.1-18.5l43.8-14.6 50.6 21.9 6.9 28.9zm84.1-44.4c-7.5 10.9-16.6 21-27.4 28.7-10.2 7.2-23.8 9.6-35.9 11.6-.9.1-12.5 2-12.6 1.7l-7-28.9 35.6-37.1 47.2-4.3c.7 7.5 1.7 18.5 2.2 25.2-.7 1-1.4 2.1-2.1 3.1zm.7-37.7c-.2.3-.3.6-.5.9l-47 4.3-25.3-44.2 22.9-62.4 32.3 2a108.1 108.1 0 0 1 18.1 19 104.63 104.63 0 0 1 14.9 28.2c-3.6 31.3-11.9 46.8-15.4 52.2zm16.8-70.1a107.6 107.6 0 0 0-9.7-15.4 121.23 121.23 0 0 0-20.5-21.3c-1.4-7.1-5.4-18.2-15.9-30 .2.1.4.3.6.4.6.5 1.3 1 1.9 1.5a124.07 124.07 0 0 1 19.7 19.3 127.8 127.8 0 0 1 23.9 45.2z" />
+          </svg>
+        </div>
+        <div class="last-result-details">
+          <div class="last-result-team-left">
+            <div class="last-result-team-content">
+              <h2 class="last-result-team-title">
+                Arsenal
+              </h2>
+            </div>
+            <div class="last-result-team-icon">
+              <img src="https://i.postimg.cc/jSBGv2DF/Arsenal-FC.png">
+            </div>
+          </div>
+          <div class="last-result-score">
+            <span class="last-result-score-separator">X</span>
+          </div>
+          <div class="last-result-team-right">
+            <div class="last-result-team-icon">
+              <img src="https://i.postimg.cc/V682QhB9/FC-Barcelona-crest.png">
+            </div>
+            <div class="last-result-team-content">
+              <h2 class="last-result-team-title"> Manchester City</h2>
+            </div>
+          </div>
+        </div>
+        <div class="last-result-info">
+          Friday 24 jul - 19:00 | Michigan Stadium
+        </div>
+      </div>
+    </section>
+
+    <!-- Results -->
+    <!-- 
+    I used HTML to structure the results section. The section includes headers, dates, team names, scores, icons, and match report links. 
+SVGs are used for vector images to ensure scalability and clarity.
+     -->
+    <section class="results">
+      <header class="results-title-container">
+        <h1 class="results-title">Results
+        </h1>
+      </header>
+      <div class="results-container">
+        <div class="results-content">
+          <div class="results-date">
+            <strong>Fri</strong> 20 July
+          </div>
+          <div class="results-category">
+            <!-- <img src="./images/matchs/ball.svg"> -->
+            <svg " xmlns=" http://www.w3.org/2000/svg" viewBox="0 0 266.8 266.8">
+              <path fill="#043464"
+                d="M227.8 39.1A133.51 133.51 0 0 0 81.5 10.5a131.17 131.17 0 0 0-42.4 28.6 133.89 133.89 0 0 0-28.6 42.4 133.52 133.52 0 0 0 0 103.8 131.17 131.17 0 0 0 28.6 42.4 133.35 133.35 0 0 0 146.2 28.6 131.17 131.17 0 0 0 42.4-28.6 133.35 133.35 0 0 0 28.6-146.2 130.36 130.36 0 0 0-28.5-42.4zm-168.2-9c1.2-.9 2.4-1.9 3.6-2.8A120.57 120.57 0 0 1 84.1 16a127.7 127.7 0 0 1 82.9-5.4c-4.3 1.7-9.5 5-18.3 12.6a108.79 108.79 0 0 0-22.1-.1 123.39 123.39 0 0 0-49 15.5c-7-2.5-16.1-5.5-20.6-7 .7.3 2.1-1.1 2.6-1.5zm121.6 33.4l-22.8 62.3-54.7 10.5-45.2-46.7c3.1-21.2 17.6-40 17.6-40s9.6-6.9 24.8-12.2a111.88 111.88 0 0 1 26.9-5.9 100.16 100.16 0 0 1 21.9.3zM11.1 129a123.34 123.34 0 0 0-1 27.9c-1.1-2.2-2-4-2.6-5.5a133.79 133.79 0 0 1-1.3-18 127.18 127.18 0 0 1 11.4-52.7 132.16 132.16 0 0 0 .2 23.7 109.21 109.21 0 0 0-6.7 24.6zm11 48.5a118.58 118.58 0 0 1-3.6-19.9 114.53 114.53 0 0 1 .8-27.5 110.67 110.67 0 0 1 5.1-19.8c9.2-7.8 21.4-12.4 28.2-14.5L97 141.7 92.5 192l-43.4 14.5c-11.1-8.1-20.1-18.9-27-29zM154 250.3c-9.7 6.3-34.1 7.8-44 8.2a126 126 0 0 1-31.6-10.4 128.86 128.86 0 0 1-24.6-15.5c.1-.3-1.2-13.6-1.1-18.5l43.8-14.6 50.6 21.9 6.9 28.9zm84.1-44.4c-7.5 10.9-16.6 21-27.4 28.7-10.2 7.2-23.8 9.6-35.9 11.6-.9.1-12.5 2-12.6 1.7l-7-28.9 35.6-37.1 47.2-4.3c.7 7.5 1.7 18.5 2.2 25.2-.7 1-1.4 2.1-2.1 3.1zm.7-37.7c-.2.3-.3.6-.5.9l-47 4.3-25.3-44.2 22.9-62.4 32.3 2a108.1 108.1 0 0 1 18.1 19 104.63 104.63 0 0 1 14.9 28.2c-3.6 31.3-11.9 46.8-15.4 52.2zm16.8-70.1a107.6 107.6 0 0 0-9.7-15.4 121.23 121.23 0 0 0-20.5-21.3c-1.4-7.1-5.4-18.2-15.9-30 .2.1.4.3.6.4.6.5 1.3 1 1.9 1.5a124.07 124.07 0 0 1 19.7 19.3 127.8 127.8 0 0 1 23.9 45.2z" />
+            </svg>
+          </div>
+          <div class="results-team-left">
+            <img class="results-team-icon" src="https://i.postimg.cc/fbX1PsXT/Paris-Saint-Germain.png">
+            <span class="results-team-title">Paris</span>
+            <span class="results-team-score">1</span>
+          </div>
+          <div class="results-team-right">
+            <span class="results-team-score">0</span>
+            <span class="results-team-title">Arsenal</span>
+            <img class="results-team-icon" src="https://i.postimg.cc/jSBGv2DF/Arsenal-FC.png">
+          </div>
+          <div class="results-link">
+            <a href="#" class="btn">Match report</a>
+          </div>
+        </div>
+      </div>
+      <div class="results-container">
+        <div class="results-content">
+          <div class="results-date">
+            <strong>Mon</strong> 17 July
+          </div>
+          <div class="results-category">
+            <svg style="display: inline-block;
+  vertical-align: middle;
+width: 90px;
+  text-align: center;
+  max-height: 40px;
+  margin-top: 15px;
+    width: 100%;
+    text-align: center; " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 266.8 266.8">
+              <path fill="#043464"
+                d="M227.8 39.1A133.51 133.51 0 0 0 81.5 10.5a131.17 131.17 0 0 0-42.4 28.6 133.89 133.89 0 0 0-28.6 42.4 133.52 133.52 0 0 0 0 103.8 131.17 131.17 0 0 0 28.6 42.4 133.35 133.35 0 0 0 146.2 28.6 131.17 131.17 0 0 0 42.4-28.6 133.35 133.35 0 0 0 28.6-146.2 130.36 130.36 0 0 0-28.5-42.4zm-168.2-9c1.2-.9 2.4-1.9 3.6-2.8A120.57 120.57 0 0 1 84.1 16a127.7 127.7 0 0 1 82.9-5.4c-4.3 1.7-9.5 5-18.3 12.6a108.79 108.79 0 0 0-22.1-.1 123.39 123.39 0 0 0-49 15.5c-7-2.5-16.1-5.5-20.6-7 .7.3 2.1-1.1 2.6-1.5zm121.6 33.4l-22.8 62.3-54.7 10.5-45.2-46.7c3.1-21.2 17.6-40 17.6-40s9.6-6.9 24.8-12.2a111.88 111.88 0 0 1 26.9-5.9 100.16 100.16 0 0 1 21.9.3zM11.1 129a123.34 123.34 0 0 0-1 27.9c-1.1-2.2-2-4-2.6-5.5a133.79 133.79 0 0 1-1.3-18 127.18 127.18 0 0 1 11.4-52.7 132.16 132.16 0 0 0 .2 23.7 109.21 109.21 0 0 0-6.7 24.6zm11 48.5a118.58 118.58 0 0 1-3.6-19.9 114.53 114.53 0 0 1 .8-27.5 110.67 110.67 0 0 1 5.1-19.8c9.2-7.8 21.4-12.4 28.2-14.5L97 141.7 92.5 192l-43.4 14.5c-11.1-8.1-20.1-18.9-27-29zM154 250.3c-9.7 6.3-34.1 7.8-44 8.2a126 126 0 0 1-31.6-10.4 128.86 128.86 0 0 1-24.6-15.5c.1-.3-1.2-13.6-1.1-18.5l43.8-14.6 50.6 21.9 6.9 28.9zm84.1-44.4c-7.5 10.9-16.6 21-27.4 28.7-10.2 7.2-23.8 9.6-35.9 11.6-.9.1-12.5 2-12.6 1.7l-7-28.9 35.6-37.1 47.2-4.3c.7 7.5 1.7 18.5 2.2 25.2-.7 1-1.4 2.1-2.1 3.1zm.7-37.7c-.2.3-.3.6-.5.9l-47 4.3-25.3-44.2 22.9-62.4 32.3 2a108.1 108.1 0 0 1 18.1 19 104.63 104.63 0 0 1 14.9 28.2c-3.6 31.3-11.9 46.8-15.4 52.2zm16.8-70.1a107.6 107.6 0 0 0-9.7-15.4 121.23 121.23 0 0 0-20.5-21.3c-1.4-7.1-5.4-18.2-15.9-30 .2.1.4.3.6.4.6.5 1.3 1 1.9 1.5a124.07 124.07 0 0 1 19.7 19.3 127.8 127.8 0 0 1 23.9 45.2z" />
+            </svg>
+          </div>
+          <div class="results-team-left">
+            <img class="results-team-icon" src="https://i.postimg.cc/B6BkqCMr/manchester.png">
+            <span class="results-team-title">manchester</span>
+            <span class="results-team-score">2</span>
+          </div>
+          <div class="results-team-right">
+            <span class="results-team-score">3</span>
+            <span class="results-team-title">Arsenal</span>
+            <img class="results-team-icon" src="https://i.postimg.cc/jSBGv2DF/Arsenal-FC.png">
+          </div>
+          <div class="results-link">
+            <a href="#" class="btn">Match report</a>
+          </div>
+        </div>
+      </div>
+      <div class="results-container">
+        <div class="results-content">
+          <div class="results-date">
+            <strong>Wed</strong> 16 July
+          </div>
+          <div class="results-category">
+            <svg style="display: inline-block;
+  vertical-align: middle;
+width: 90px;
+  text-align: center;
+  max-height: 40px;
+  margin-top: 15px;
+    width: 100%;
+    text-align: center; " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 266.8 266.8">
+              <path fill="#043464"
+                d="M227.8 39.1A133.51 133.51 0 0 0 81.5 10.5a131.17 131.17 0 0 0-42.4 28.6 133.89 133.89 0 0 0-28.6 42.4 133.52 133.52 0 0 0 0 103.8 131.17 131.17 0 0 0 28.6 42.4 133.35 133.35 0 0 0 146.2 28.6 131.17 131.17 0 0 0 42.4-28.6 133.35 133.35 0 0 0 28.6-146.2 130.36 130.36 0 0 0-28.5-42.4zm-168.2-9c1.2-.9 2.4-1.9 3.6-2.8A120.57 120.57 0 0 1 84.1 16a127.7 127.7 0 0 1 82.9-5.4c-4.3 1.7-9.5 5-18.3 12.6a108.79 108.79 0 0 0-22.1-.1 123.39 123.39 0 0 0-49 15.5c-7-2.5-16.1-5.5-20.6-7 .7.3 2.1-1.1 2.6-1.5zm121.6 33.4l-22.8 62.3-54.7 10.5-45.2-46.7c3.1-21.2 17.6-40 17.6-40s9.6-6.9 24.8-12.2a111.88 111.88 0 0 1 26.9-5.9 100.16 100.16 0 0 1 21.9.3zM11.1 129a123.34 123.34 0 0 0-1 27.9c-1.1-2.2-2-4-2.6-5.5a133.79 133.79 0 0 1-1.3-18 127.18 127.18 0 0 1 11.4-52.7 132.16 132.16 0 0 0 .2 23.7 109.21 109.21 0 0 0-6.7 24.6zm11 48.5a118.58 118.58 0 0 1-3.6-19.9 114.53 114.53 0 0 1 .8-27.5 110.67 110.67 0 0 1 5.1-19.8c9.2-7.8 21.4-12.4 28.2-14.5L97 141.7 92.5 192l-43.4 14.5c-11.1-8.1-20.1-18.9-27-29zM154 250.3c-9.7 6.3-34.1 7.8-44 8.2a126 126 0 0 1-31.6-10.4 128.86 128.86 0 0 1-24.6-15.5c.1-.3-1.2-13.6-1.1-18.5l43.8-14.6 50.6 21.9 6.9 28.9zm84.1-44.4c-7.5 10.9-16.6 21-27.4 28.7-10.2 7.2-23.8 9.6-35.9 11.6-.9.1-12.5 2-12.6 1.7l-7-28.9 35.6-37.1 47.2-4.3c.7 7.5 1.7 18.5 2.2 25.2-.7 1-1.4 2.1-2.1 3.1zm.7-37.7c-.2.3-.3.6-.5.9l-47 4.3-25.3-44.2 22.9-62.4 32.3 2a108.1 108.1 0 0 1 18.1 19 104.63 104.63 0 0 1 14.9 28.2c-3.6 31.3-11.9 46.8-15.4 52.2zm16.8-70.1a107.6 107.6 0 0 0-9.7-15.4 121.23 121.23 0 0 0-20.5-21.3c-1.4-7.1-5.4-18.2-15.9-30 .2.1.4.3.6.4.6.5 1.3 1 1.9 1.5a124.07 124.07 0 0 1 19.7 19.3 127.8 127.8 0 0 1 23.9 45.2z" />
+            </svg>
+          </div>
+          <div class="results-team-left">
+            <img class="results-team-icon" src="https://i.postimg.cc/fbX1PsXT/Paris-Saint-Germain.png">
+            <span class="results-team-title">Paris</span>
+            <span class="results-team-score">0</span>
+          </div>
+          <div class="results-team-right">
+            <span class="results-team-score">2</span>
+            <span class="results-team-title">Manchester</span>
+            <img class="results-team-icon" src="https://i.postimg.cc/B6BkqCMr/manchester.png">
+          </div>
+          <div class="results-link">
+            <a href="#" class="btn">Match report</a>
+          </div>
+        </div>
+      </div>
+      <div class="results-container">
+        <div class="results-content">
+          <div class="results-date">
+            <strong>Fri</strong> 10 July
+          </div>
+          <div class="results-category">
+            <svg style="display: inline-block;
+  vertical-align: middle;
+width: 90px;
+  text-align: center;
+  max-height: 40px;
+  margin-top: 15px;
+    width: 100%;
+    text-align: center; " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 266.8 266.8">
+              <path fill="#043464"
+                d="M227.8 39.1A133.51 133.51 0 0 0 81.5 10.5a131.17 131.17 0 0 0-42.4 28.6 133.89 133.89 0 0 0-28.6 42.4 133.52 133.52 0 0 0 0 103.8 131.17 131.17 0 0 0 28.6 42.4 133.35 133.35 0 0 0 146.2 28.6 131.17 131.17 0 0 0 42.4-28.6 133.35 133.35 0 0 0 28.6-146.2 130.36 130.36 0 0 0-28.5-42.4zm-168.2-9c1.2-.9 2.4-1.9 3.6-2.8A120.57 120.57 0 0 1 84.1 16a127.7 127.7 0 0 1 82.9-5.4c-4.3 1.7-9.5 5-18.3 12.6a108.79 108.79 0 0 0-22.1-.1 123.39 123.39 0 0 0-49 15.5c-7-2.5-16.1-5.5-20.6-7 .7.3 2.1-1.1 2.6-1.5zm121.6 33.4l-22.8 62.3-54.7 10.5-45.2-46.7c3.1-21.2 17.6-40 17.6-40s9.6-6.9 24.8-12.2a111.88 111.88 0 0 1 26.9-5.9 100.16 100.16 0 0 1 21.9.3zM11.1 129a123.34 123.34 0 0 0-1 27.9c-1.1-2.2-2-4-2.6-5.5a133.79 133.79 0 0 1-1.3-18 127.18 127.18 0 0 1 11.4-52.7 132.16 132.16 0 0 0 .2 23.7 109.21 109.21 0 0 0-6.7 24.6zm11 48.5a118.58 118.58 0 0 1-3.6-19.9 114.53 114.53 0 0 1 .8-27.5 110.67 110.67 0 0 1 5.1-19.8c9.2-7.8 21.4-12.4 28.2-14.5L97 141.7 92.5 192l-43.4 14.5c-11.1-8.1-20.1-18.9-27-29zM154 250.3c-9.7 6.3-34.1 7.8-44 8.2a126 126 0 0 1-31.6-10.4 128.86 128.86 0 0 1-24.6-15.5c.1-.3-1.2-13.6-1.1-18.5l43.8-14.6 50.6 21.9 6.9 28.9zm84.1-44.4c-7.5 10.9-16.6 21-27.4 28.7-10.2 7.2-23.8 9.6-35.9 11.6-.9.1-12.5 2-12.6 1.7l-7-28.9 35.6-37.1 47.2-4.3c.7 7.5 1.7 18.5 2.2 25.2-.7 1-1.4 2.1-2.1 3.1zm.7-37.7c-.2.3-.3.6-.5.9l-47 4.3-25.3-44.2 22.9-62.4 32.3 2a108.1 108.1 0 0 1 18.1 19 104.63 104.63 0 0 1 14.9 28.2c-3.6 31.3-11.9 46.8-15.4 52.2zm16.8-70.1a107.6 107.6 0 0 0-9.7-15.4 121.23 121.23 0 0 0-20.5-21.3c-1.4-7.1-5.4-18.2-15.9-30 .2.1.4.3.6.4.6.5 1.3 1 1.9 1.5a124.07 124.07 0 0 1 19.7 19.3 127.8 127.8 0 0 1 23.9 45.2z" />
+            </svg>
+          </div>
+          <div class="results-team-left">
+            <img class="results-team-icon" src="https://i.postimg.cc/V682QhB9/FC-Barcelona-crest.png">
+            <span class="results-team-title">Barcelona</span>
+            <span class="results-team-score">3</span>
+          </div>
+          <div class="results-team-right">
+            <span class="results-team-score">2</span>
+            <span class="results-team-title">Arsenal</span>
+            <img class="results-team-icon" src="https://i.postimg.cc/jSBGv2DF/Arsenal-FC.png">
+          </div>
+          <div class="results-link">
+            <a href="#" class="btn">Match report</a>
+          </div>
+        </div>
+      </div>
+      <div class="results-container">
+        <div class="results-content">
+          <div class="results-date">
+            <strong>Sat</strong> 09 July
+          </div>
+          <div class="results-category">
+            <svg style="display: inline-block;
+            vertical-align: middle;
+          width: 90px;
+            text-align: center;
+            max-height: 40px;
+            margin-top: 15px;
+              width: 100%;
+              text-align: center; " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 266.8 266.8">
+              <path fill="#043464"
+                d="M227.8 39.1A133.51 133.51 0 0 0 81.5 10.5a131.17 131.17 0 0 0-42.4 28.6 133.89 133.89 0 0 0-28.6 42.4 133.52 133.52 0 0 0 0 103.8 131.17 131.17 0 0 0 28.6 42.4 133.35 133.35 0 0 0 146.2 28.6 131.17 131.17 0 0 0 42.4-28.6 133.35 133.35 0 0 0 28.6-146.2 130.36 130.36 0 0 0-28.5-42.4zm-168.2-9c1.2-.9 2.4-1.9 3.6-2.8A120.57 120.57 0 0 1 84.1 16a127.7 127.7 0 0 1 82.9-5.4c-4.3 1.7-9.5 5-18.3 12.6a108.79 108.79 0 0 0-22.1-.1 123.39 123.39 0 0 0-49 15.5c-7-2.5-16.1-5.5-20.6-7 .7.3 2.1-1.1 2.6-1.5zm121.6 33.4l-22.8 62.3-54.7 10.5-45.2-46.7c3.1-21.2 17.6-40 17.6-40s9.6-6.9 24.8-12.2a111.88 111.88 0 0 1 26.9-5.9 100.16 100.16 0 0 1 21.9.3zM11.1 129a123.34 123.34 0 0 0-1 27.9c-1.1-2.2-2-4-2.6-5.5a133.79 133.79 0 0 1-1.3-18 127.18 127.18 0 0 1 11.4-52.7 132.16 132.16 0 0 0 .2 23.7 109.21 109.21 0 0 0-6.7 24.6zm11 48.5a118.58 118.58 0 0 1-3.6-19.9 114.53 114.53 0 0 1 .8-27.5 110.67 110.67 0 0 1 5.1-19.8c9.2-7.8 21.4-12.4 28.2-14.5L97 141.7 92.5 192l-43.4 14.5c-11.1-8.1-20.1-18.9-27-29zM154 250.3c-9.7 6.3-34.1 7.8-44 8.2a126 126 0 0 1-31.6-10.4 128.86 128.86 0 0 1-24.6-15.5c.1-.3-1.2-13.6-1.1-18.5l43.8-14.6 50.6 21.9 6.9 28.9zm84.1-44.4c-7.5 10.9-16.6 21-27.4 28.7-10.2 7.2-23.8 9.6-35.9 11.6-.9.1-12.5 2-12.6 1.7l-7-28.9 35.6-37.1 47.2-4.3c.7 7.5 1.7 18.5 2.2 25.2-.7 1-1.4 2.1-2.1 3.1zm.7-37.7c-.2.3-.3.6-.5.9l-47 4.3-25.3-44.2 22.9-62.4 32.3 2a108.1 108.1 0 0 1 18.1 19 104.63 104.63 0 0 1 14.9 28.2c-3.6 31.3-11.9 46.8-15.4 52.2zm16.8-70.1a107.6 107.6 0 0 0-9.7-15.4 121.23 121.23 0 0 0-20.5-21.3c-1.4-7.1-5.4-18.2-15.9-30 .2.1.4.3.6.4.6.5 1.3 1 1.9 1.5a124.07 124.07 0 0 1 19.7 19.3 127.8 127.8 0 0 1 23.9 45.2z" />
+            </svg>
+          </div>
+          <div class="results-team-left">
+            <img class="results-team-icon" src="https://i.postimg.cc/fbX1PsXT/Paris-Saint-Germain.png">
+            <span class="results-team-title">Paris</span>
+            <span class="results-team-score">1</span>
+          </div>
+          <div class="results-team-right">
+            <span class="results-team-score">1</span>
+            <span class="results-team-title">Manchester</span>
+            <img class="results-team-icon" src="https://i.postimg.cc/B6BkqCMr/manchester.png">
+          </div>
+          <div class="results-link">
+            <a href="#" class="btn">Match report</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- contact info  -->
+    <!-- 
+    I used HTML to structure a contact information section with titles, text, and individual contact cards.
+     -->
+    <section id="contact" class="contact-information">
+      <!-- contact-information-top -->
+      <div class="contact-information-top">
+        <h2 class="contact-information-title">Are you interested or would you like to receive more information?</h2>
+        <p class="contact-information-text">Please contact one of our colleagues without obligation, we will be happy to
+          assist you.</p>
+      </div>
+      <!-- contact-information-bottom -->
+      <div class="contact-information-bottom">
+        <div class="persoon1">
+          <div>
+            <img class="information-foto" src="https://i.postimg.cc/nhw0GPPV/persoon1.webp" alt="">
+          </div>
+          <div class="contact-information-name">
+            <p class="contact-name">Stacy B. Shelton</p>
+            <p class="contact-function">Account manager</p>
+          </div>
+          <div class="contact-information-data">
+            <p class="contact-phone">636-263-3700</p>
+            <p class="contact-email">StacyBShelton@dayrep.com</p>
+          </div>
+        </div>
+        <div class="persoon2">
+          <div>
+            <img class="information-foto" src="https://i.postimg.cc/Z5qw3SjD/persoon2.jpg" alt="">
+          </div>
+          <div class="contact-information-name">
+            <p class="contact-name">Stacy B. Shelton</p>
+            <p class="contact-function">Account manager</p>
+          </div>
+          <div class="contact-information-data">
+            <p class="contact-phone">636-263-3700</p>
+            <p class="contact-email">StacyBShelton@dayrep.com</p>
+          </div>
+        </div>
+        <div class="persoon3">
+          <div>
+            <img class="information-foto" src="https://i.postimg.cc/CLSPhD80/persoon3.webp" alt="">
+          </div>
+          <div class="contact-information-name">
+            <p class="contact-name">Stacy B. Shelton</p>
+            <p class="contact-function">Account manager</p>
+          </div>
+          <div class="contact-information-data">
+            <p class="contact-phone">636-263-3700</p>
+            <p class="contact-email">StacyBShelton@dayrep.com</p>
+          </div>
+        </div>
+        <div class="persoon4">
+          <div>
+            <img class="information-foto" src="https://i.postimg.cc/YqRXh9NW/persoon4.jpg" alt="">
+          </div>
+          <div class="contact-information-name">
+            <p class="contact-name">Stacy B. Shelton</p>
+            <p class="contact-function">Account manager</p>
+          </div>
+          <div class="contact-information-data">
+            <p class="contact-phone">636-263-3700</p>
+            <p class="contact-email">StacyBShelton@dayrep.com</p>
+          </div>
+        </div>
+        <div class="persoon5">
+          <div>
+            <img class="information-foto" src="https://i.postimg.cc/9fR18Y6d/persoon5.webp" alt="">
+          </div>
+          <div class="contact-information-name">
+            <p class="contact-name">Stacy B. Shelton</p>
+            <p class="contact-function">Account manager</p>
+          </div>
+          <div class="contact-information-data">
+            <p class="contact-phone">636-263-3700</p>
+            <p class="contact-email">StacyBShelton@dayrep.com</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <!-- 
+ The footer is divided into three main parts: sponsor logos, social media icons, and a copyright notice
+   -->
+  <footer class="footer">
+    <!-- Footer: sponsore -->
+    <div class="footer-sponsors">
+      <a href="https://www.adidas.com/" class="footer-sponsor-logo" target="_blank">
+        <img src="https://i.postimg.cc/JhYWw84f/adidas-logo-20.png">
+      </a>
+      <a href="https://www.coca-colacompany.com/" class="footer-sponsor-logo" target="_blank">
+        <img src="https://i.postimg.cc/CxY0kJQQ/coca2.png">
+      </a>
+      <a href="https://www.nike.com/" class="footer-sponsor-logo" target="_blank">
+        <img src="https://i.postimg.cc/nzsfpWXC/nike.png">
+      </a>
+      <a href="https://cnn.com/" class="footer-sponsor-logo" target="_blank">
+        <img src="https://i.postimg.cc/28nm1g2W/cnn.png">
+      </a>
+      <a href="https://tooncast.com/" class="footer-sponsor-logo" target="_blank">
+        <img src="https://i.postimg.cc/Pq5kFJhb/toncast.png">
+      </a>
+      <a href="https://www.bmw.com/" class="footer-sponsor-logo" target="_blank">
+        <img src="https://i.postimg.cc/nVypcnYZ/bmw.png">
+      </a>
+      <a href="https://www.bbc.com/" class="footer-sponsor-logo" target="_blank">
+        <img src="https://i.postimg.cc/fWtMNVdB/bbc.png ">
+      </a>
+      <a href=" https://www.redbull.com/" class="footer-sponsor-logo" target="_blank">
+        <img src="https://i.postimg.cc/P54j4YGr/readpull.png">
+      </a>
+    </div>
+
+    <!-- Footer: social -->
+    <div class=" footer-social">
+      <div>
+        <a href="https://www.instagram.com/" target="_blank" class="footer-social-item"><svg
+            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="25px" height="45px">
+            <path fill="#fff"
+              d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+          </svg></a>
+        <a href="https://www.facebook.com/ " target="_blank" class="footer-social-item"><svg
+            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.448 20.448" width="25px" height="45px">
+            <path fill="#fff" fill-rule="evenodd"
+              d="M10.224 0C4.578 0 0 4.239 0 9.466a9.2 9.2 0 003.81 7.371v3.61l3.481-1.91a11.011 11.011 0 002.933.4c5.646 0 10.224-4.238 10.224-9.466S15.87 0 10.224 0zm1.016 12.748l-2.6-2.777-5.08 2.777 5.584-5.932 2.667 2.777 5.017-2.777-5.588 5.932z">
+            </path>
+          </svg></a>
+        <a href="https://www.whatsapp.com/" target="_blank" class="footer-social-item "><svg
+            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="25px" height="45px">
+            <path fill="#fff"
+              d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+          </svg></a>
+      </div>
+    </div>
+
+    <!-- copyright -->
+    <div class="footer-copyright">
+      <p class="footer-copyright-text">Copyright &copy; 2024 - FBC Club | Design and Development : <a
+          href="https://www.linkedin.com/in/amjad-abdulmajeed-792917311/" target="_blank">AMJAD</a></p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+
+</body>
+
+</html>

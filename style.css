@@ -1,0 +1,1378 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* Base style */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  /* background: #f5faff; */
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+ul {
+  list-style: none;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+img {
+  width: 100%;
+}
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/* Utilities  */
+/* Button */
+.btn {
+  /* allows to set a width and height on the element */
+  display: inline-block;
+  padding: 14px 44px;
+  background-color: #65beec;
+  border: none;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: color 0.2s, background-color 0.2s;
+  cursor: pointer;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+/* Navigation bar */
+/*  I style the navigation bar for both desktop and mobile views. I use classes to manage styles like positioning, transitions, and hover effects. */
+.nav {
+  /* Positions the nav bar relative to its nearest positioned ancestor. */
+  position: absolute;
+  /* Ensures the nav bar appears above other elements. */
+  z-index: 100;
+  /* Makes the nav bar span the entire width of the viewport. */
+  width: 100%;
+  /* Uses Flexbox to align child elements. */
+  display: flex;
+  /*  No background color. */
+  background: transparent;
+  /*  Distributes items evenly with space between them. */
+  justify-content: space-between;
+  /* transition: opacity 100ms ease-in-out, height 100ms ease-in-out; */
+  padding-bottom: 10px;
+  margin-top: 24px;
+}
+
+/* These classes style sections within the navigation bar. They both use flexbox for layout and have a left margin of 30px. */
+.nav-left,
+.nav-center {
+  display: flex;
+  margin-left: 30px;
+}
+
+/*  Sizes for an SVG logo. */
+.nav-left-figure-svg {
+  height: 74px;
+  width: 60px;
+}
+
+/* also centers its items vertically */
+.nav-center {
+  align-items: center;
+}
+
+/* This class styles individual navigation items. */
+.nav-item {
+  /* text-decoration: wavy; */
+  margin-right: 50px;
+  color: white;
+  padding-bottom: 5px;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-item:hover {
+  border-bottom: 2px solid #62bfeb;
+  cursor: pointer;
+}
+
+.nav-item:last-child {
+  margin-right: 30px;
+}
+
+/* nav fixed */
+.nav-fixed {
+  /* making it stay in place even when scrolling.  */
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  display: flex;
+  background: white;
+  justify-content: space-between;
+  /* transition: opacity 100ms ease-in-out, height 100ms ease-in-out; */
+  box-shadow: 0 6px 15px 0 rgba(0, 0, 0, 0.2);
+  height: 72px;
+}
+
+.nav-fixed-left-figure {
+  margin-top: 10px;
+}
+
+.nav-fixed-item {
+  margin-right: 50px;
+  color: #043464;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #fff;
+}
+
+.nav-fixed-item:hover {
+  border-bottom: 2px solid #62bfeb !important;
+  cursor: pointer;
+}
+
+.nav-fixed-item-home {
+  border-bottom: 2px solid rgb(98, 191, 235);
+}
+
+/* NAV mobile */
+/* This class styles the mobile version of the navigation bar, which is hidden by default */
+.mobile-logo-nav {
+  display: none;
+  /*  When visible, it is fixed at the top, spans the full width, and has a white background with a subtle box shadow. */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 3px 6px #00000029;
+  z-index: 13;
+}
+
+.mobile-logo-nav-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+.mobile-logo-nav-item {
+  position: relative;
+  margin: 0 10px;
+  width: 60px;
+}
+
+.mobile-logo-nav-logo {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+}
+
+.mobile-logo-nav-logo > svg {
+  width: 100%;
+}
+
+/* This class styles the mobile navigation menu, which is hidden by default. */
+.mobile-nav {
+  display: none;
+  /* When visible (.mobile-nav.active), it slides into view from the right side (transform: translateX(0)). */
+  position: fixed;
+  top: 48px;
+  right: 0;
+  width: 100%;
+  max-width: 250px;
+  height: 100%;
+  padding: 20px;
+  background-color: #f4f4f4;
+  z-index: 12;
+  transform: translateX(100%);
+  transition: transform 0.3s;
+}
+
+/*  is used to control the visibility and positioning of the mobile navigation menu */
+.mobile-nav.active {
+  /* The value 0 means that the element is moved to its default position on the X-axis. */
+  transform: translateX(0);
+}
+
+.mobile-nav-item {
+  border-bottom: 1px solid #e4e3e3;
+}
+
+.mobile-nav-link {
+  display: block;
+  padding: 12px 20px;
+  color: #043464;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* This class styles the hamburger menu button, which is hidden by default. */
+.hamburger {
+  display: none;
+  /*  When visible, it is fixed at the top right and uses a linear gradient for the menu icon. */
+  position: fixed;
+  padding: 16px;
+  top: 0;
+  right: 0;
+  border-radius: 0;
+  border: 0;
+  background: none;
+  z-index: 999;
+}
+
+.hamburger > span {
+  display: block;
+  width: 20px;
+  height: 16px;
+  /* background: url(./images/hamburger3.svg); */
+  /*  gradients let you display smooth transitions between two or more specified colors. */
+  background: linear-gradient(
+    to bottom,
+    #043464,
+    #043464 20%,
+    white 20%,
+    white 40%,
+    #043464 40%,
+    #043464 60%,
+    white 60%,
+    white 80%,
+    #043464 80%,
+    #043464 100%
+  );
+}
+/* When active (.hamburger.active), the background changes to a close icon. */
+.hamburger.active > span {
+  /* background: url(./images/close.svg); */
+  background: url('https://i.postimg.cc/ryB2n61Z/close100.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  width: 25px;
+  height: 25px;
+}
+
+/* Hero */
+/* 
+The CSS styles the hero section to be visually appealing, with full-height background images, 
+a gradient overlay for better readability, and a button that users can click to leave their details. 
+I use flexbox to center and align content, ensuring it looks good on all devices.
+*/
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-around;
+  position: relative;
+  z-index: 10;
+}
+
+.hero-figure {
+  margin: 0;
+}
+
+.hero-img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.hero-img::before {
+  background: radial-gradient(
+    closest-side at 50% 50%,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(3, 25, 47, 0.466) 47%,
+    rgb(7, 40, 74) 100%
+  );
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.75;
+}
+
+.header-image {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  object-position: top;
+}
+
+.hero-content {
+  position: relative;
+  color: #fff;
+  margin-left: 100px;
+  margin-top: 50px;
+}
+
+.hero-content-title {
+  font-size: 80px;
+  max-width: 620px;
+}
+
+.hero-content-button {
+  height: 50px;
+  width: 250px;
+  border: 1px solid #62bfea;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  color: #fff;
+  text-decoration: none;
+  background: #62bfea;
+  margin-top: 31px;
+  border-radius: 5px;
+  font-size: 17px;
+}
+
+.hero-content-button:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+/* Dialog (modal) */
+
+.modal {
+  /* Initially hides the modal. */
+  display: none;
+  position: fixed;
+  /* Ensures the modal appears above other content. */
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  /* Adds scrollbars if the modal content overflows. */
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+@keyframes animatebottom {
+  from {
+    transform: translate(-50%, 100%);
+  }
+  to {
+    transform: translate(-50%, -50%);
+  }
+}
+
+.modal-container {
+  background-color: #fefefe;
+  width: 100%;
+  /* Full width but no wider than 480px. */
+  max-width: 480px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* move -50%  horizontally and vertically*/
+  transform: translate(-50%, -50%);
+  animation-name: animatebottom;
+  animation-duration: 0.4s;
+  /* Smooth animation transition */
+  animation-timing-function: ease;
+}
+
+.modal-content {
+  padding: 31px;
+}
+
+.modal-content-title {
+  color: #043464;
+  font-size: 16px;
+  line-height: 32px;
+  font-weight: 600;
+}
+
+.content-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.input-control {
+  padding: 15px 0;
+}
+
+.input-field {
+  /* Makes the input field a block-level element. */
+  display: block;
+  border: none;
+  border-bottom: 2px solid #d5d5d5;
+  /* outline: none; */
+  width: 100%;
+  padding: 10px 0;
+  line-height: 25px;
+}
+
+.content-button {
+  height: 50px;
+  justify-content: center;
+  border: 1px solid #62bfea;
+  align-items: center;
+  display: flex;
+  color: #fff;
+  /* Removes underline. */
+  text-decoration: none;
+  background: #62bfea;
+  border-radius: 5px;
+  font-size: 17px;
+  max-width: 418px;
+  width: 100%;
+}
+
+.content-button:hover {
+  /* Slightly transparent on hover. */
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.button-close {
+  display: flex;
+  position: absolute;
+  right: 30px;
+  align-items: center;
+  top: 50px;
+  cursor: pointer;
+}
+
+.button-text {
+  color: #fff;
+  font-size: 16px;
+  margin-right: 30px;
+}
+
+.close-span {
+  border: 2px solid hsla(0, 0%, 100%, 0.501);
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ////////////////////////// */
+
+/* Text below the hero */
+.text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc((100vh / 5) * 1);
+}
+
+.text-title {
+  color: #043464;
+  font-size: 50px;
+  margin-left: 50px;
+}
+
+/* About */
+.about {
+  background: #f5faff;
+  padding-top: 70px;
+}
+
+.about-container {
+  display: flex;
+  flex-direction: row;
+  background: #f5faff;
+  padding-bottom: 90px;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding-top: 70px;
+}
+/* Slider */
+.about-slider {
+  height: 690px;
+  width: 730px;
+  position: relative;
+}
+
+.about-slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-slider-images > figure {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0;
+  transition: visibility 0.6s ease-in-out, opacity 0.6s ease-in-out;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.about-slider-images > figure.active {
+  /*  0 (completely transparent) to 1 (completely opaque). */
+  opacity: 1;
+  visibility: visible;
+}
+
+.slide-buttons {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 20px 0 20px;
+}
+
+.prev {
+  display: block;
+  /* This rotates the element 90 degrees clockwise( for making the button appear as an arrow pointing in a specific direction). */
+  transform: rotate(90deg);
+  width: 50px;
+  height: 50px;
+  border-radius: 24px;
+  background: white;
+}
+
+.prev:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.prev-right {
+  left: 59%;
+}
+
+.about-text {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 45%;
+  margin-left: 50px;
+  /* margin-right: 100px; */
+}
+
+.about-title {
+  color: #043464;
+  font-size: 50px;
+  margin-left: 50px;
+}
+.about-content p {
+  color: #043464;
+  font-size: 18px;
+  line-height: 31px;
+  padding-top: 70px;
+  margin-left: 50px;
+}
+
+.about-button {
+  display: flex;
+  padding-top: 40px;
+  margin-left: 50px;
+}
+
+.next {
+  display: block;
+  transform: rotate(270deg);
+  width: 50px;
+  height: 50px;
+  border-radius: 24px;
+  background: white;
+}
+
+.next:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.prev-svg,
+.next-svg {
+  transform: translate(70%, 80%);
+  height: 20px;
+  width: 20px;
+}
+
+/* Gallery */
+/*  I applied styles to position and animate the gallery panels, ensuring that the active panel expands and displays its title.  */
+.gallery {
+  padding-top: 70px;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding-bottom: 50px;
+  background-color: white;
+}
+
+.gallery-title h2 {
+  margin-bottom: 20px;
+  font-size: 36px;
+  color: #043464;
+  font-weight: 800;
+}
+
+.gallery-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* width: 90vw; */
+}
+
+.gallery-panel {
+  height: 80vh;
+  border-radius: 50px;
+  cursor: pointer;
+  flex: 0.5;
+  margin: 10px;
+  position: relative;
+  transition: flex 0.7s ease-in;
+}
+
+.gallery-container .gallery-panel h3 {
+  font-size: 24px;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  margin: 0;
+  opacity: 0;
+  color: #fff;
+}
+
+.gallery-panel.active {
+  flex: 5;
+}
+
+.gallery-panel.active h3 {
+  opacity: 1;
+  transition: opacity 0.8s ease-in 0.4s;
+}
+
+.gallery-img1 {
+  background: url('https://i.postimg.cc/MGkGCWcn/img1.jpg') no-repeat center
+    center/cover;
+}
+
+.gallery-img2 {
+  background: url('https://i.postimg.cc/3x0RfywM/img2.jpg') no-repeat center
+    center/cover;
+}
+
+.gallery-img3 {
+  background: url('https://i.postimg.cc/wxF718rr/img3.webp') no-repeat center
+    center/cover;
+}
+.gallery-img4 {
+  background: url('https://i.postimg.cc/ZnYnwVWj/img4.jpg') no-repeat center
+    center/cover;
+}
+.gallery-img5 {
+  background: url('https://i.postimg.cc/zvdB6KWN/img5.jpg') no-repeat center
+    center/cover;
+}
+
+/* News */
+/* 
+The CSS styles the section to create a visually appealing layout with responsive article blocks, hover effects for images, and a clean design with consistent typography and spacing.  
+*/
+.news {
+  background: #f5faff;
+  padding-bottom: 30px;
+}
+.news-container {
+  margin-left: 10%;
+  margin-right: 10%;
+  padding-top: 70px;
+}
+
+.news-title {
+  font-size: 36px;
+  color: #043464;
+  font-weight: 800;
+}
+.articles {
+  margin: 0 -15px;
+  font-size: 0;
+}
+
+.article {
+  /* allows to set a width and height on the element */
+  display: inline-block;
+  vertical-align: top;
+  width: calc(33.333% - 30px);
+  margin: 0 15px 40px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.article-image {
+  position: relative;
+  /* if an image or other content inside this container exceeds the specified height, it will be clipped rather than spilling out. */
+  overflow: hidden;
+  height: 240px;
+  background-color: #d6d6d6;
+  /* property controls how the total width and height of an element are calculated. The value initial sets it to the default value, which is content-box. This means padding and borders are not included in the element’s width and height. */
+  box-sizing: initial;
+}
+
+.article-image > img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  transition: transform 0.8s, opacity 0.3s;
+}
+
+.article:hover .article-image > img {
+  /*  used to apply a scaling effect to an image inside an article when the article is hovered over.   */
+  transform: scale(1.1);
+}
+
+.article-content {
+  margin-top: 15px;
+}
+
+.article-content-date {
+  display: block;
+  color: #043464;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.fa-calendar-days {
+  margin-right: 5px;
+}
+
+.article-content-title {
+  margin: 20px 0 0;
+  min-height: 48px;
+  color: #043464;
+  line-height: 24px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.article-content-description {
+  margin-top: 14px;
+  color: #043464;
+  line-height: 22px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.article-content-button {
+  display: inline-block;
+  margin: 25px 0 0;
+  margin-bottom: 10px;
+}
+
+.posts-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+
+/* Last match  */
+/* 
+I used CSS for styling to ensure a visually appealing layout with proper alignment, spacing, and color scheme. 
+ */
+.last-result {
+  margin-left: 10%;
+  margin-right: 10%;
+  padding-top: 70px;
+}
+
+.last-result-title {
+  font-size: 36px;
+  color: #043464;
+  font-weight: 800;
+}
+.last-result-highlighted {
+  background-color: rgba(4, 52, 100, 0.85);
+  padding: 65px 0 50px;
+  color: #fff;
+}
+
+.last-result-details {
+  position: relative;
+  margin-top: 20px;
+  font-size: 0;
+}
+
+.last-result-team-left {
+  padding-right: 50px;
+  text-align: right;
+}
+
+.last-result-team-left,
+.last-result-team-right {
+  display: inline-block;
+  vertical-align: top;
+  width: calc(50% - 80px);
+}
+
+.last-result-team-content {
+  display: inline-block;
+  vertical-align: top;
+  width: calc(100% - 70px);
+}
+
+.last-result-team-left .last-result-team-content {
+  padding-right: 30px;
+}
+
+.last-result-team-title {
+  margin: 0;
+  font-size: 38px;
+}
+
+.last-result-team-icon {
+  display: inline-block;
+  vertical-align: top;
+  width: 70px;
+}
+
+.last-result-score {
+  display: inline-block;
+  vertical-align: top;
+  width: 160px;
+  text-align: center;
+}
+
+.last-result-score-separator {
+  margin: 0 30px;
+  font-size: 16px;
+}
+
+.last-result-team-right {
+  padding-left: 50px;
+}
+
+.last-result-team-right .last-result-team-content {
+  padding-left: 30px;
+}
+
+.last-result-info {
+  margin-top: 40px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 16px;
+}
+
+/* Match results  */
+.results-title-container {
+  position: relative;
+  display: block;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 80px;
+}
+
+.results-title {
+  font-size: 36px;
+  color: #043464;
+  font-weight: 800;
+}
+
+.results-container {
+  position: relative;
+  display: block;
+  padding: 25px 0;
+  border-top: 1px solid #c7c7c7;
+  background-color: #fff;
+  font-size: 0;
+  transition: background-color 0.2s;
+}
+
+.results-content {
+  position: relative;
+  display: block;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.results-container:last-child,
+.match:last-child {
+  border-bottom: 1px solid #c7c7c7;
+}
+
+.results-container:hover {
+  background-color: #f3f3f3;
+}
+
+.results-date {
+  width: 190px;
+  color: #4e4848;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-align: left;
+  margin-right: auto;
+}
+
+.results-category,
+.results-date,
+.results-link {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.results-date > strong {
+  color: #043464;
+  font-weight: 700;
+}
+
+.results-category {
+  width: 90px;
+  text-align: center;
+}
+
+.results-category > img {
+  max-height: 40px;
+}
+
+.results-team-left,
+.results-team-right {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  width: calc(50% - 268px);
+  color: #043464;
+  font-weight: 700;
+  z-index: 1;
+  padding-right: 50px;
+  text-align: right;
+}
+
+.results-team-left .results-team-icon {
+  right: -12px;
+}
+
+.results-team-icon {
+  position: absolute;
+  top: 50%;
+  max-width: 60px;
+  max-height: 60px;
+  transform: translateY(-50%);
+}
+
+.results-team-right .results-team-icon {
+  left: -12px;
+}
+
+.results-team-title {
+  display: inline-block;
+  font-size: 20px;
+}
+
+.results-team-left .results-team-score,
+.results-team-left .results-team-title {
+  padding-right: 50px;
+}
+
+.results-team-score {
+  font-size: 24px;
+}
+
+.results-team-right .results-team-score,
+.results-team-right .results-team-title {
+  padding-right: 50px;
+}
+
+.results-link {
+  text-align: right;
+  width: 255px;
+}
+
+/* contact info  */
+/* 
+I used CSS to style the section with padding, text alignment, colors, font sizes, and flexible layout for the contact cards.
+*/
+.contact-information {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  text-align: center;
+  background: #f5faff;
+}
+
+.contact-information-title {
+  color: #043464;
+  font-size: 40px;
+}
+
+.contact-information-text {
+  color: #043464;
+  font-size: 20px;
+  padding-top: 50px;
+}
+
+.contact-information-bottom {
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+}
+
+.persoon1,
+.persoon2,
+.persoon3,
+.persoon4,
+.persoon5 {
+  margin-right: 85px;
+}
+
+.information-foto {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.contact-name {
+  font-size: 16px;
+  font-weight: bold;
+  color: #043464;
+}
+
+.contact-function {
+  margin-top: 11px;
+  font-size: 15px;
+  color: #62bfeb;
+}
+
+.contact-phone {
+  margin-top: 29px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #043464;
+}
+
+.contact-email {
+  margin-top: 11px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #043464;
+}
+
+/* Footer */
+/* 
+ I use flexbox to align and space out items in the footer.
+*/
+.footer {
+  background-color: #0b162a;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Footer: spnsor */
+.footer-sponsors {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.footer-sponsor-logo {
+  margin-right: 40px;
+  width: 120px;
+  padding-top: 15px;
+}
+
+/* Footer: social */
+.footer-social {
+  text-align: center;
+}
+
+.footer-social-item {
+  position: relative;
+  /* allows to set a width and height on the element */
+  display: inline-block;
+  margin: 30px 10px 0;
+  width: 45px;
+  height: 45px;
+  background-color: #62bfeb;
+  border-radius: 50%;
+}
+
+.footer-copyright {
+  padding: 30px 0;
+  margin: 60px 0 0;
+  text-align: center;
+  border-top: 1px solid #ffffff7a;
+}
+.footer-copyright-text {
+  color: #fff;
+  font-weight: 400;
+}
+.footer-copyright-text > a {
+  color: #65beec;
+  font-weight: bold;
+}
+
+@media (max-width: 1024px) {
+  /* Nav */
+  .nav-fixed {
+    display: none;
+  }
+
+  .nav-left,
+  .nav-center {
+    display: none;
+  }
+
+  .mobile-logo-nav {
+    display: block;
+  }
+
+  .mobile-logo-nav-list {
+    height: 60px;
+    transform: none;
+  }
+
+  .mobile-nav {
+    display: block;
+  }
+
+  .hamburger {
+    display: block;
+  }
+  /* about */
+  .about-title {
+    font-size: 38px;
+  }
+
+  .about-content-text2 {
+    display: none;
+  }
+  .about-button {
+    padding: 0;
+  }
+
+  /* Gallery */
+  .gallery {
+    margin-left: 3%;
+    margin-right: 3%;
+  }
+
+  /* Last result */
+  .last-result {
+    /*  if you have to override a style that cannot be overridden in any other way */
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .last-result-highlighted {
+    padding: 30px 0 30px;
+  }
+  .last-result-team-left {
+    width: calc(44% - 80px);
+  }
+  .last-result-team-title {
+    font-size: 30px;
+  }
+
+  .last-result-info {
+    font-size: 22px;
+  }
+  /* Results */
+  .results-title-container,
+  .results-content {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  .results-date {
+    width: 120px;
+  }
+  .results-team-left,
+  .results-team-right {
+    width: calc(50% - 233px);
+  }
+
+  .results-team-right .results-team-score,
+  .results-team-right .results-team-title {
+    padding-right: 0px;
+    padding-left: 20px;
+  }
+
+  .results-team-left .results-team-score {
+    padding-right: 20px;
+  }
+
+  /* Contact info */
+  .contact-information-title {
+    font-size: 30px;
+  }
+  .contact-information-bottom {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Nav */
+  .hamburger > span {
+    margin-right: 20px;
+  }
+  /* hero */
+  .hero {
+    height: 75vh;
+  }
+
+  .header-image {
+    height: 75vh;
+  }
+
+  .hero-content-title {
+    font-size: 50px;
+  }
+
+  /* text onder hero */
+  .text {
+    text-align: center;
+  }
+  /* about */
+  .about-container {
+    flex-direction: column;
+    padding-top: 75px;
+    padding-bottom: 75px;
+    align-items: center;
+  }
+  .about-text {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 50px;
+  }
+  .about-title {
+    font-size: 28px;
+  }
+
+  .about-content-text2 {
+    display: none;
+  }
+  .about-button {
+    padding: 0;
+  }
+
+  /* Last result */
+  .last-result-title {
+    margin: 0;
+    font-size: 28px;
+  }
+  .last-result-highlighted {
+    padding: 20px;
+  }
+  .last-result-team-left,
+  .last-result-team-right {
+    width: calc(50% - 60px);
+  }
+  .last-result-score {
+    width: 120px;
+  }
+  .last-result-score-separator {
+    margin: 0 20px;
+  }
+  .last-result-team-right {
+    padding-left: 30px;
+  }
+  .last-result-team-icon {
+    width: 60px;
+  }
+  .last-result-team-content {
+    display: none;
+  }
+  .last-result-info {
+    margin-top: 15px;
+    font-size: 14px;
+    line-height: 24px;
+  }
+  .last-result-category > img {
+    max-height: 30px;
+  }
+  /* Results */
+  .results-title {
+    margin: 40px 0 20px;
+    font-size: 28px;
+  }
+
+  .results-date {
+    width: 100%;
+    text-align: center;
+  }
+  .results-category {
+    margin-top: 15px;
+    width: 100%;
+    text-align: center;
+  }
+  .results-category > svg {
+    display: inline-block;
+    vertical-align: middle;
+    width: 90px;
+    text-align: center;
+    max-height: 40px;
+    margin-top: 15px;
+    width: 100%;
+    text-align: center;
+  }
+  .results-team-right {
+    padding-left: 40px;
+  }
+
+  .results-team-left {
+    padding-right: 40px;
+  }
+
+  .results-team-left,
+  .results-team-right {
+    margin-top: 35px;
+    width: 50%;
+  }
+
+  .results-link {
+    margin-top: 40px;
+    width: 100%;
+    text-align: center;
+  }
+  .contact-information-bottom {
+    flex-wrap: wrap;
+  }
+}
+
+/* /////////////////////////// */
+/* /////////////////////////// */
+/* /////////////////////////// */
+
+.nav {
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  display: flex;
+  /*   background: transparent; */
+  justify-content: space-between;
+  padding-bottom: 10px;
+  margin-top: 24px;
+}
+
+.nav-item {
+  margin-right: 50px;
+  color: white;
+  padding-bottom: 5px;
+  /*   border-bottom: 2px solid transparent; */
+}
